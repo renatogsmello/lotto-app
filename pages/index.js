@@ -1,5 +1,5 @@
 import { Box } from "@skynexui/components"
-import { MoreLotto } from "./lotto/MoreLotto"
+import MoreLotto from "./lotto/MoreLotto"
 import useSwr from "swr"
 import React from "react"
 
