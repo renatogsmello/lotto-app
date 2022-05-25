@@ -10,7 +10,7 @@ export default function HomePage() {
 
 	const { data, error } = useSwr("/api/lottos", fetcher)
 	if (error) return <div>Failed to load</div>
-	if (!data) return <div>Loading...ola</div>
+	if (!data) return <div>Loading...</div>
 
 	return (
 		<>
@@ -49,48 +49,37 @@ export default function HomePage() {
 						gridAutoRows: "1fr",
 					}}
 				>
-					{data.map(
-						(data) => (
-							<Box
-								styleSheet={{
-									borderRadius: ".5rem",
-									backgroundColor: data.theme,
-									padding: "1.5rem",
-									textAlign: "center",
-									margin: "1.5rem",
-								}}
-							>
-								<h3>{data.lotteryName}</h3>
-								<picture>
-									<source srcSet={`/images/${data.lotteryLogo}`} type="image/svg+xml" />
-									<img src={`/images/${data.lotteryLogo}`} alt="Lotto Logo" />
-								</picture>
-								<h1>
-									<strong>&euro;</strong>
-									{data.jackpotPrice}
-								</h1>
-								<p>
-									<i className="fas fa-clock"></i>
-									{data.drawTime}
-								</p>
-								<button type="button">
-									<i className="fas fa-play"></i>
-									Play
-								</button>
-							</Box>
-
-							// <Lotto key={lotto.id} />
-							// <li key={lotto.id}>
-							// 	<Link href="/lotto/lotto" as={`/lotto/${lotto.id}`}>
-							// 		<a>{`Lotto ${lotto.id}`}</a>
-							// 	</Link>
-							// </li>
-						)
-						// console.log(lotto)
-					)}
+					{data.map((data) => (
+						<Box
+							styleSheet={{
+								borderRadius: ".5rem",
+								backgroundColor: data.theme,
+								padding: "1.5rem",
+								textAlign: "center",
+								margin: "1.5rem",
+							}}
+						>
+							<h3>{data.lotteryName}</h3>
+							<picture>
+								<source srcSet={`/images/${data.lotteryLogo}`} type="image/svg+xml" />
+								<img src={`/images/${data.lotteryLogo}`} alt="Lotto Logo" />
+							</picture>
+							<h1>
+								<strong>&euro;</strong>
+								{data.jackpotPrice}
+							</h1>
+							<p>
+								<i className="fas fa-clock"></i>
+								{data.drawTime}
+							</p>
+							<button type="button">
+								<i className="fas fa-play"></i>
+								Play
+							</button>
+						</Box>
+					))}
 					<MoreLotto />
 				</Box>
-				{/* <GridDisplay crossAxisCount={{ xs: 1, md: 3, lg: 4, xl: numRows }} data={data} itemBuilder={(i, l) => <Lotto key={i} lotto={l} />} /> */}
 			</Box>
 			<style jsx>
 				{`
