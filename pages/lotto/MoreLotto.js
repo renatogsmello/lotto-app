@@ -1,5 +1,5 @@
 import { Box } from "@skynexui/components"
-export function MoreLotto() {
+export default function MoreLotto() {
 	return (
 		<>
 			<Box
