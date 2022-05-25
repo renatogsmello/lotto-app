@@ -1,4 +1,5 @@
 import { Box, Text } from "@skynexui/components"
+import { MoreLotto } from "./lotto/MoreLotto"
 import useSwr from "swr"
 import React from "react"
 
@@ -9,7 +10,6 @@ export default function HomePage() {
 
 	const { data, error } = useSwr("/api/lottos", fetcher)
 	if (error) return <div>Failed to load</div>
-	console.log(data)
 	if (!data) return <div>Loading...ola</div>
 
 	return (
@@ -88,7 +88,7 @@ export default function HomePage() {
 						)
 						// console.log(lotto)
 					)}
-					{/* <MoreLotto /> */}
+					<MoreLotto />
 				</Box>
 				{/* <GridDisplay crossAxisCount={{ xs: 1, md: 3, lg: 4, xl: numRows }} data={data} itemBuilder={(i, l) => <Lotto key={i} lotto={l} />} /> */}
 			</Box>
