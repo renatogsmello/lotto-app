@@ -25,7 +25,6 @@ export default function HomePage() {
 						onChange={function (event) {
 							const value = event.target.value
 							setNumRows(value)
-							console.log(value)
 						}}
 						defaultValue={numRows}
 					>
@@ -51,6 +50,7 @@ export default function HomePage() {
 				>
 					{data.map((data) => (
 						<Box
+							key={data.id}
 							styleSheet={{
 								borderRadius: ".5rem",
 								backgroundColor: data.theme,

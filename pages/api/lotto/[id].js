@@ -7,8 +7,8 @@ export default function lottoHandler(req, res) {
 	switch (method) {
 		case "GET":
 			//Get data from database
-			res.status(200).json({ id, lotteryName, lotteryLogo, jackpotPrice, drawTime, theme })
-			console.log(res)
+			res.status(200).json({ id, lotteryName: lotteryName, lotteryLogo: lotteryLogo, jackpotPrice: jackpotPrice, drawTime: drawTime, theme: theme })
+
 			break
 		case "PUT":
 			res.status(200).json({ id, lotteryName, lotteryLogo, jackpotPrice, drawTime, theme })
